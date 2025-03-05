@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <style>
         * {
             margin: 0;
@@ -51,11 +52,23 @@
 <body>
     <div class="Main">
         <h1>Тестовое приложение</h1>
-        <img src="{{ url_for('static', filename='bot.png') }}" alt="123">
-        <p></p>
-        <button class="btn">Кнопка</button>
+        <button class="f-btn">arch</button>
+        <button class="s-btn">subprice</button>
+        <script>
+            let tg = window.Telegram.WebApp;
+    
+            let fBtn = document.getElementsByClassName("f-btn")[0]
+            let sBtn = document.getElementsByClassName("s-btn")[0]
+    
+            fBtn.addEventListener("click", () => {
+                tg.requestEmojiStatusAccess("write_custom_emoji_status")
+                tg.setEmojiStatus({custom_emoji_id: "5850670356884360611"})
+            });
+            sBtn.addEventListener("click", () => {
+                tg.requestEmojiStatusAccess("write_custom_emoji_status")
+                tg.setEmojiStatus({custom_emoji_id: "5904432197695181781"})
+            });
+        </script>
     </div>
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
